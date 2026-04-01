@@ -12,7 +12,7 @@
   <!-- Mobile first-->
   <link rel="stylesheet" href="/css/style.css" />
   <!-- Larger devices -->
-  <script src="./src/js/App.js" defer></script>
+  <script type="module" src="/src/js/App.js" defer></script>
 </head>
 
 <body>
@@ -23,15 +23,16 @@
 
   <!-- Search Section -->
   <section id="search-section">
+    <p>Search for movies below:</p>
     <input type="text" id="search-input" placeholder="Enter movie title..." />
     <button id="search-btn">Search</button>
   </section>
 
   <!-- Results Section -->
   <main id="results">
-    <!-- Movie details will be injected here by JS -->
+    <!-- Inject js here : Movie details  -->
     <div id="movie-details"></div>
-    <!-- Trailer will be injected here by JS -->
+    <!-- Inject js : Trailer -->
     <div id="trailer"></div>
   </main>
 

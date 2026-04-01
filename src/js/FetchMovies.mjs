@@ -1,9 +1,31 @@
-function fetchMovies(data){
-    if(!data.ok){
-        throw new Error("Could not retrieve the response. Please try again");
-    }else{
-        const response = data.json();
-        return response;
+const omdbKey = import.meta.env.VITE_OMDB_KEY;
+
+import { displaySearchResults } from "./DisplayMovies.mjs";
+
+export async function fetchMovies(query) {
+    try {
+        const response = await fetch(
+            `https://www.omdbapi.com/?s=${encodeURIComponent(query)}&apikey=${omdbKey}`
+        );
+
+        if (!response.ok) {
+            document.querySelector("#movie-details").textContent =
+                "Failed to fetch movies. Please try again later.";
+            return [];
+        }
+
+        const data = await response.json();
+
+        if (data.Response === "True") {
+            displaySearchResults(data.Search); 
+        } else {
+            document.querySelector("#movie-details").innerHTML =
+                `<p>No results found for "<strong>${query}</strong>".</p>`;
+        }
+
+    } catch (err) {
+        console.error("Error fetching movies:", err);
+        document.querySelector("#movie-details").textContent =
+            "Something went wrong. Please try again.";
     }
 }
-
