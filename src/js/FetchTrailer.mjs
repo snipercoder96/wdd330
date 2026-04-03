@@ -1,48 +1,36 @@
 const ytKey = import.meta.env.VITE_YOUTUBE_KEY;
-const omdbKey = import.meta.env.VITE_OMDB_KEY;
 
 // movieTitle comes from the clicked movie card (already the OMDB title)
-export async function displayTrailer(movieTitle) {
-    const trailerContainer = document.getElementById("trailer");
-    trailerContainer.innerHTML = "<p>Loading trailer...</p>";
+export async function displayTrailer(title, year = "") {
+    const query = `${title} ${year} official trailer`.trim();
 
     try {
-        // Fetch YouTube results for this title
-        const ytRes = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(movieTitle)}+official+trailer&type=video&maxResults=5&key=${ytKey}`
+        const response = await fetch(
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=1&key=${ytKey}`
         );
-        const ytData = await ytRes.json();
+        const container = document.getElementById("movie-details");
+        const data = await response.json();
+        const videoId = data.items?.[0]?.id?.videoId;
+        
 
-        const normalise = str => str.toLowerCase().replace(/[^a-z0-9\s]/g, "").trim();
-        const omdbNeedle = normalise(movieTitle); // e.g. "the dark knight"
-
-        // Find the YT video whose snippet.title contains the OMDB title
-        const matched = ytData.items?.find(item =>
-            normalise(item.snippet.title).includes(omdbNeedle)
-        );
-
-        if (!matched) {
-            trailerContainer.innerHTML = `<p>No matching trailer found for "<strong>${movieTitle}</strong>".</p>`;
-            return;
+        if (videoId) {
+            container.innerHTML = `
+                <h1>${title ? title : `title not found`} ${year ? `(${year})` : ``}</h1>
+                <iframe
+                    width="560" height="315"
+                    src="https://www.youtube.com/embed/${videoId}"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+                `;
+                
+        } else {
+            container.innerHTML = "<p>Trailer not found.</p>";
         }
-
-        // Use the YT video's own title (not the search query) as the heading
-        const videoId = matched.id.videoId;
-        const ytTitle = matched.snippet.title;
-
-        trailerContainer.innerHTML = `
-            <h3>${ytTitle}</h3>
-            <iframe
-                width="560" height="315"
-                src="https://www.youtube.com/embed/${videoId}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        `;
-
-    } catch (error) {
-        console.error("Trailer fetch error:", error);
-        trailerContainer.innerHTML = "<p>Error loading trailer. Please try again.</p>";
+    } catch (err) {
+        const container = document.getElementById("movie-details");
+        container.innerHTML =
+            "<p>Failed to load trailer. Please try again.</p>";
     }
 }

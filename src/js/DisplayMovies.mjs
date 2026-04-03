@@ -1,11 +1,8 @@
 // Called after a search — renders a clickable list of results
 export function displaySearchResults(movies) {
     const container = document.getElementById("movie-details");
-    const trailerContainer = document.getElementById("trailer");
-
     container.innerHTML = "";       
-    trailerContainer.innerHTML = ""; 
-
+  
     if (!movies || movies.length === 0) {
         container.innerHTML = "<p>No movies found.</p>";
         return;
@@ -17,7 +14,7 @@ export function displaySearchResults(movies) {
 
         card.innerHTML = `
             <h3>${movie.Title} (${movie.Year})</h3>
-            <img src="${movie.Poster !== "N/A" ? movie.Poster : "placeholder.jpg"}"
+            <img src="${movie.Poster !== "N/A" ? movie.Poster : "hero.png"}"
                  alt="${movie.Title} poster" />
             <button class="watch-trailer-btn">Watch Trailer</button>
         `;
@@ -40,7 +37,7 @@ export async function displayGlobalMovies() {
 
     try {
         const response = await fetch(
-            `https://www.omdbapi.com/?s=avengers&apikey=${omdbKey}` 
+            `https://www.omdbapi.com/?s=iron man&apikey=${omdbKey}` 
         );
         const data = await response.json();
 
@@ -54,7 +51,7 @@ export async function displayGlobalMovies() {
             card.classList.add("movie-card");
 
             card.innerHTML = `
-                <h3>${movie.Title} (${movie.Year})</h3>
+                <h3>${movie.Title ? movie.Title : `No title found`} (${movie.Year ? movie.Year : ``})</h3>
                 <img src="${movie.Poster !== "N/A" ? movie.Poster : "placeholder.jpg"}"
                      alt="${movie.Title} poster" />
                 <button class="watch-trailer-btn">Watch Trailer</button>
@@ -62,7 +59,7 @@ export async function displayGlobalMovies() {
 
             // Navigate to trailer page with movie title as a URL param
             card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
-                window.location.href = `/src/movies_selected/index.html?title=${encodeURIComponent(movie.Title)}`;
+                window.location.href = `/src/movies_selected/index.html?title=${encodeURIComponent(movie.Title)}&year=${encodeURIComponent(movie.Year)}`;
             });
 
             container.appendChild(card);
