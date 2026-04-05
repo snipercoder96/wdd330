@@ -31,6 +31,6 @@ export async function displayTrailer(title, year = "") {
     } catch (err) {
         const container = document.getElementById("movie-details");
         container.innerHTML =
-            "<p>Failed to load trailer. Please try again.</p>";
+            `<p>${err} : Failed to load movies. Please try again.</p>`;
     }
 }

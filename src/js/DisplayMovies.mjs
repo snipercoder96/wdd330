@@ -66,6 +66,6 @@ export async function displayGlobalMovies() {
         });
 
     } catch (err) {
-        container.innerHTML = "<p>Failed to load movies. Please try again.</p>";
+        container.innerHTML = `<p>${err} : Failed to load movies. Please try again.</p>`;
     }
 }
