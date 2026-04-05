@@ -1,14 +1,11 @@
 import { displaySearchResults } from "./DisplayMovies.mjs";
-const omdbKey = import.meta.env.VITE_OMDB_KEY;
+const tmdbKey = import.meta.env.VITE_TMDB_KEY;
 console.log("Injected env:", import.meta.env);
-
-
-
 
 export async function fetchMovies(query) {
     try {
         const response = await fetch(
-            `https://www.omdbapi.com/?s=${encodeURIComponent(query)}&apikey=${omdbKey}`
+            `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&query=${encodeURIComponent(query.toLowerCase())}`
         );
 
         if (!response.ok) {
@@ -19,8 +16,9 @@ export async function fetchMovies(query) {
 
         const data = await response.json();
 
-        if (data.Response === "True") {
-            displaySearchResults(data.Search); 
+        // TMDb returns results[], not Search
+        if (data.results && data.results.length > 0) {
+            displaySearchResults(data.results);
         } else {
             document.querySelector("#movie-details").innerHTML =
                 `<p>No results found for "<strong>${query}</strong>".</p>`;

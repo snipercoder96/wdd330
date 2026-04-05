@@ -6,9 +6,10 @@ searchBar();
 const params = new URLSearchParams(window.location.search);
 const movieTitle = params.get("title");
 const movieYear = params.get("year");
+const movieId = params.get("id");
 
 if (movieTitle) {
-  displayTrailer(movieTitle, movieYear);
+  displayTrailer(movieTitle, movieYear, movieId);
 } else {
   document.getElementById("movie-details").innerHTML =
     "<p>No movie selected.</p>";

@@ -1,8 +1,8 @@
-// Called after a search — renders a clickable list of results
+
 export function displaySearchResults(movies) {
     const container = document.getElementById("movie-details");
-    container.innerHTML = "";       
-  
+    container.innerHTML = "";
+
     if (!movies || movies.length === 0) {
         container.innerHTML = "<p>No movies found.</p>";
         return;
@@ -12,16 +12,21 @@ export function displaySearchResults(movies) {
         const card = document.createElement("div");
         card.classList.add("movie-card");
 
+        // TMDb uses title, release_date, poster_path
+        const year = movie.release_date ? movie.release_date.split("-")[0] : "N/A";
+        const posterUrl = movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : "hero.png";
+
         card.innerHTML = `
-            <h3>${movie.Title} (${movie.Year})</h3>
-            <img src="${movie.Poster !== "N/A" ? movie.Poster : "hero.png"}"
-                 alt="${movie.Title} poster" />
+            <h3>${movie.title} (${year})</h3>
+            <img src="${posterUrl}" alt="${movie.title} poster" />
             <button class="watch-trailer-btn">Watch Trailer</button>
         `;
 
-        // Navigate to trailer page with movie title as a URL param
+       
         card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
-            window.location.href = `/src/movies_selected/movies-selected.html?title=${encodeURIComponent(movie.Title)}`;
+            window.location.href = `/src/movies_selected/movies-selected.html?id=${movie.id}&title=${encodeURIComponent(movie.title.toLowerCase())}&year=${encodeURIComponent(year)}`;
         });
 
         container.appendChild(card);
@@ -31,35 +36,38 @@ export function displaySearchResults(movies) {
 
 // Loads a default set of movies on page load
 export async function displayGlobalMovies() {
-    const omdbKey = import.meta.env.VITE_OMDB_KEY;
+    const tmdbKey = import.meta.env.VITE_TMDB_KEY;
     const container = document.getElementById("movie-details");
     container.innerHTML = "";
 
     try {
         const response = await fetch(
-            `https://www.omdbapi.com/?s=iron man&apikey=${omdbKey}` 
+            `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&query=iron man`
         );
         const data = await response.json();
 
-        if (!data.Search || data.Search.length === 0) {
+        if (!data.results || data.results.length === 0) {
             container.innerHTML = "<p>No movies found.</p>";
             return;
         }
 
-        data.Search.forEach(movie => {
+        data.results.forEach(movie => {
             const card = document.createElement("div");
             card.classList.add("movie-card");
 
+            const year = movie.release_date ? movie.release_date.split("-")[0] : "N/A";
+            const posterUrl = movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : "placeholder.jpg";
+
             card.innerHTML = `
-                <h3>${movie.Title ? movie.Title : `No title found`} (${movie.Year ? movie.Year : ``})</h3>
-                <img src="${movie.Poster !== "N/A" ? movie.Poster : "placeholder.jpg"}"
-                     alt="${movie.Title} poster" />
+                <h3>${movie.title || "No title found"} (${year})</h3>
+                <img src="${posterUrl}" alt="${movie.title} poster" />
                 <button class="watch-trailer-btn">Watch Trailer</button>
             `;
 
-            // Navigate to trailer page with movie title as a URL param
             card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
-                window.location.href = `/src/movies_selected/movies-selected.html?title=${encodeURIComponent(movie.Title)}&year=${encodeURIComponent(movie.Year)}`;
+                window.location.href = `/src/movies_selected/movies-selected.html?id=${movie.id}&title=${encodeURIComponent(movie.title.toLowerCase())}&year=${encodeURIComponent(year)}`;
             });
 
             container.appendChild(card);
