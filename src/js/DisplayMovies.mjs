@@ -21,7 +21,7 @@ export function displaySearchResults(movies) {
 
         // Navigate to trailer page with movie title as a URL param
         card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
-            window.location.href = `/src/movies_selected/index.html?title=${encodeURIComponent(movie.Title)}`;
+            window.location.href = `/src/movies_selected/movies-selected.html?title=${encodeURIComponent(movie.Title)}`;
         });
 
         container.appendChild(card);
@@ -59,7 +59,7 @@ export async function displayGlobalMovies() {
 
             // Navigate to trailer page with movie title as a URL param
             card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
-                window.location.href = `/src/movies_selected/index.html?title=${encodeURIComponent(movie.Title)}&year=${encodeURIComponent(movie.Year)}`;
+                window.location.href = `/src/movies_selected/movies-selected.html?title=${encodeURIComponent(movie.Title)}&year=${encodeURIComponent(movie.Year)}`;
             });
 
             container.appendChild(card);
