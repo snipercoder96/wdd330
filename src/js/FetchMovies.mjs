@@ -1,4 +1,6 @@
 const omdbKey = import.meta.env.VITE_OMDB_KEY;
+console.log("Injected env:", import.meta.env);
+
 
 import { displaySearchResults } from "./DisplayMovies.mjs";
 
