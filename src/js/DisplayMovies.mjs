@@ -26,7 +26,7 @@ export function displaySearchResults(movies) {
 
        
         card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
-            window.location.href = `/wdd330/movies_selected/movies-selected.html?id=${movie.id}&title=${encodeURIComponent(movie.title.toLowerCase())}&year=${encodeURIComponent(year)}`;
+            window.location.href = `movies-selected.html?id=${movie.id}&title=${encodeURIComponent(movie.title.toLowerCase())}&year=${encodeURIComponent(year)}`;
         });
 
         container.appendChild(card);
@@ -67,7 +67,7 @@ export async function displayGlobalMovies() {
             `;
 
             card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
-                window.location.href = `/wdd330/movies_selected/movies-selected.html?id=${movie.id}&title=${encodeURIComponent(movie.title.toLowerCase())}&year=${encodeURIComponent(year)}`;
+                window.location.href = `movies-selected.html?id=${movie.id}&title=${encodeURIComponent(movie.title.toLowerCase())}&year=${encodeURIComponent(year)}`;
             });
 
             container.appendChild(card);
