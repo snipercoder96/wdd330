@@ -17,14 +17,22 @@
   <body>
     <!-- Header -->
     <header>
-      <h1>CineMate | Home</h1>
+      <div id="main-header">
+        <h1>CineMate | Home</h1>
+      </div>
+      <div>
+        <!-- Search Section -->
+        <section id="search-section">
+          <p>Search for movies below:</p>
+          <input type="text" id="search-input" placeholder="Enter movie title..." />
+          <button id="search-btn">Search</button>
+        </section>
+    
+        <div id="filter-results">
+          <button id="filter-btn"><img src="" alt="A svg icon of filter"> Filters</button>
+        </div>
+      </div>
     </header>
-
-    <!-- Search Section -->
-    <section id="search-section">
-      <input type="text" id="search-input" placeholder="Enter movie title..." />
-      <button id="search-btn">Search</button>
-    </section>
 
     <!-- Results Section -->
     <main id="results">
