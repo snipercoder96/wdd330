@@ -1,4 +1,5 @@
 const tmdbKey = import.meta.env.VITE_TMDB_KEY;
+import { addToFavourites } from "./MoviesByCategory.js";
 
 // Fetch and cache the genre map so any caller can use it
 let cachedGenreMap = null;
@@ -60,6 +61,10 @@ export function displaySearchResults(movies, genreMap = {}) {
 
         card.querySelector(".watch-trailer-btn").addEventListener("click", () => {
             window.location.href = `/wdd330/src/movies_selected/movies-selected.html?id=${movie.id}&title=${encodeURIComponent(movie.title.toLowerCase())}&year=${encodeURIComponent(year)}`;
+        });
+
+        card.querySelector(".add-to-favorites").addEventListener("click", () => {
+            addToFavourites(movie, year, genres);
         });
 
         container.appendChild(card);
