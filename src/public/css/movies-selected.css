@@ -1,0 +1,219 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    
+    background-color: #ccc;
+}
+
+.header-name {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+    flex-grow: 1;
+
+    & img {
+        overflow: hidden;
+        object-fit: contain;
+    }
+}
+
+.search-section {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+#search-section {
+    display: flex;
+
+    & input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-right: none;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        outline: none;
+        flex: 1;
+    }
+
+    & button {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-left: none;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background: #eee;
+        cursor: pointer;
+    }
+}
+
+main {
+    margin-top: 30px;
+}
+
+
+.navigation-bar {
+    padding: 1rem;
+    border-bottom: solid 1px #ccc;
+
+    & nav {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+
+
+#movie-details {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    justify-content: center;
+
+    & .movie-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1em;
+        margin: 1em;
+        text-align: center;
+        min-height: 250px;
+        background-color: #eee;
+
+        & p {
+            overflow-wrap: break-word;
+        }
+
+        & img {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        & .movie-action-btn {
+            display: flex;
+            flex-direction: column;
+            padding: 1em;
+            gap: .5em;
+
+            & button {
+                width: 50%;
+                align-self: center;
+                cursor: pointer;
+            }
+
+
+            & .add-to-favorites div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                & .align-svg {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+
+        }
+    }
+
+
+
+    & .grid-area1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        padding: 1rem;
+        max-width: 500px;
+        width: 100%;
+        height: 500px;
+        background-color: #eee;
+
+        & iframe {
+            border-radius: 6px;
+            border: solid 1px #000;
+            max-width: 400px;
+        }
+
+        & button {
+            width: 50%;
+            align-self: center;
+            padding: .5em;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.grid-area2 {
+    padding: 1em;
+
+    & p {
+        word-break: break-all;
+    }
+
+    & .movie-title {
+        border-bottom: solid 2px #eee;
+    }
+
+    & .movie-synopsis {
+        border-bottom: solid 2px #eee;
+    }
+
+    & .movie-director {
+        border-bottom: solid 2px #eee;
+    }
+
+    & .movie-writer {
+        border-bottom: solid 2px #eee;
+    }
+
+    & .movie-main-cast {
+        padding: 1em;
+
+        &>div {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            background-color: #ccc;
+            padding: 1em;
+        }
+    }
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #ccc;
+    padding: 1em;
+
+    & p {
+        text-align: center;
+    }
+
+    & .socials {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}

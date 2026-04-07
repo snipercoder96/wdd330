@@ -40,9 +40,11 @@ export function renderFavourites() {
   favorites.forEach((movie, index) => {
     const item = document.createElement("li");
     item.innerHTML = `
-            <strong>${movie.title}</strong> (${movie.year})
-            <span>Genres: ${movie.genres}</span>
-            <span>Rating: ${movie.rating ?? "N/A"}</span>
+            <div>
+              <strong>${movie.title}</strong> (${movie.year})
+              <span>Genres: ${movie.genres}</span>
+              <span>Rating: ${movie.rating ?? "N/A"}</span>
+            </div>
             <button class="remove-btn" data-index="${index}">Remove</button>
         `;
     list.appendChild(item);
