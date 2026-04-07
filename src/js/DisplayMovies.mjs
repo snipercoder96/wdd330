@@ -21,7 +21,10 @@ export function displaySearchResults(movies, genreMap = {}) {
     container.innerHTML = "";
 
     if (!movies || movies.length === 0) {
-        container.innerHTML = "<p>No movies found.</p>";
+        container.innerHTML = `
+        <div>
+            <p>No movies found.</p>
+        </div>`;
         return;
     }
 
@@ -32,7 +35,7 @@ export function displaySearchResults(movies, genreMap = {}) {
         const year = movie.release_date ? movie.release_date.split("-")[0] : "N/A";
         const posterUrl = movie.poster_path
             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-            : "hero.png";
+            : "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXZtZThvZ25sYm5qMDA1OHBmczU4NHJlZnBsMGNyaXgxdG5oOHVzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qHXSYtyW0kANmLLzcG/giphy.gif";
 
         // genre_ids may be undefined (e.g. from /search/movie endpoint)
         const genres = (movie.genre_ids ?? [])
@@ -41,7 +44,7 @@ export function displaySearchResults(movies, genreMap = {}) {
 
         card.innerHTML = `
             <h3>${movie.title} (${year})</h3>
-            <img src="${posterUrl}" alt="${movie.title} poster" />
+            <img src="${posterUrl}" alt="${movie.title} poster" loading="lazy" />
             <p>Genres: ${genres}</p>
             <div>
                 <button class="watch-trailer-btn">Watch Trailer</button>
@@ -91,6 +94,9 @@ export async function displayGlobalMovies() {
         displaySearchResults(data.results, genreMap);
 
     } catch (err) {
-        container.innerHTML = `<p>${err} : Failed to load movies. Please try again.</p>`;
+        container.innerHTML = 
+        `<div class="error-message">
+            <p>${err} : Failed to load movies. Please try again.</p>
+        </div>`;
     }
 }
