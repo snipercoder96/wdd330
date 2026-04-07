@@ -6,15 +6,15 @@ import { getGenreMap } from "./DisplayMovies.mjs";
 const tmdbKey = import.meta.env.VITE_TMDB_KEY;
 
 document.addEventListener("DOMContentLoaded", async () => {
-    searchBar();
+  searchBar();
 
-    const genreMap = await getGenreMap();
+  const genreMap = await getGenreMap();
 
-    const response = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${tmdbKey}`
-    );
-    const data = await response.json();
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${tmdbKey}`,
+  );
+  const data = await response.json();
 
-    displayGlobalMovies(data.results, genreMap);
-    initializeFilter(data.results, genreMap);
+  displayGlobalMovies(data.results, genreMap);
+  initializeFilter(data.results, genreMap);
 });
