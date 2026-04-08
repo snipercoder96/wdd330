@@ -21,7 +21,7 @@ export function addToFavourites(movie, year, genres) {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }
 
-  //Redirect after yyou save your favorite movie
+  //Redirect after you save your favorite movie
   window.location.href = "/wdd330/src/Favorites/favorites.html";
 }
 
