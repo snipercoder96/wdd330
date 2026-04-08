@@ -17,11 +17,14 @@ export async function getGenreMap() {
 }
 
 export function displaySearchResults(movies, genreMap = {}) {
-    const container = document.getElementById("movie-details");
-    container.innerHTML = "";
+    const searchContainer = document.getElementById("search-results");
+    const movieDetailsContainer = document.getElementById("movie-details");
+
+    searchContainer.innerHTML = "";
+    movieDetailsContainer.innerHTML = "";
 
     if (!movies || movies.length === 0) {
-        container.innerHTML = `
+        searchContainer.innerHTML = `
         <div>
             <p>No movies found.</p>
         </div>`;
@@ -74,7 +77,7 @@ export function displaySearchResults(movies, genreMap = {}) {
             addToFavourites(movie, year, genres);
         });
 
-        container.appendChild(card);
+        searchContainer.appendChild(card);
     });
 }
 
@@ -98,6 +101,7 @@ export async function displayGlobalMovies() {
         displaySearchResults(data.results, genreMap);
 
     } catch (err) {
+        const container = document.getElementById("movie-details");
         container.innerHTML =
             `<div class="error-message">
             <p>${err} : Failed to load movies. Please try again.</p>
