@@ -1,4 +1,4 @@
-import"./MoviesByCategory-BLOZ-waP.js";import{t as e}from"./SearchBar-CiC9r3ZL.js";var t=`AIzaSyA4zdST2SyqJ9zt0STvk6Q8oG-bicMhz2w`,n=`0db2b97fda8bdb113cd7fe172fd59810`;async function r(e,r=``,i){let a=`${e} ${r} trailer`.trim();try{let e=await(await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(a.toLowerCase())}&type=video&maxResults=1&key=${t}`)).json(),r=e.items?.[0]?.id?.videoId;console.log(e);let o=await(await fetch(`https://api.themoviedb.org/3/movie/${i}?api_key=${n}`)).json(),s=await(await fetch(`https://api.themoviedb.org/3/movie/${i}/credits?api_key=${n}`)).json(),c=s.crew?.filter(e=>e.job===`Director`)||[],l=s.crew?.filter(e=>[`Writer`,`Screenplay`,`Author`].includes(e.job))||[],u=s.cast?.slice(0,5)||[],d=document.getElementById(`movie-details`);r?d.innerHTML=`
+import"./MoviesByCategory-BnnAdQnl.js";import{t as e}from"./SearchBar-ofR8o_PO.js";var t=`AIzaSyA4zdST2SyqJ9zt0STvk6Q8oG-bicMhz2w`,n=`0db2b97fda8bdb113cd7fe172fd59810`;async function r(e,r=``,i){let a=`${e} ${r} trailer`.trim();try{let e=await(await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(a.toLowerCase())}&type=video&maxResults=1&key=${t}`)).json(),r=e.items?.[0]?.id?.videoId;console.log(e);let o=await(await fetch(`https://api.themoviedb.org/3/movie/${i}?api_key=${n}`)).json(),s=await(await fetch(`https://api.themoviedb.org/3/movie/${i}/credits?api_key=${n}`)).json(),c=s.crew?.filter(e=>e.job===`Director`)||[],l=s.crew?.filter(e=>[`Writer`,`Screenplay`,`Author`].includes(e.job))||[],u=s.cast?.slice(0,5)||[],d=document.getElementById(`movie-details`);r?d.innerHTML=`
             <div class="grid-area1">
                 <iframe
                 width="560"
@@ -10,7 +10,7 @@ import"./MoviesByCategory-BLOZ-waP.js";import{t as e}from"./SearchBar-CiC9r3ZL.j
                 </iframe>
 
                 <button>
-                <svg viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px">
+                <svg viewBox="0 0 24.00 24.00" fill="yellow" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
