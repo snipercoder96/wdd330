@@ -6,25 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>CineMate App</title>
-  <link rel="shortcut icon" href="/wdd330/assets/cinemate-BY7P2iGJ.svg" type="image/x-icon" />
-  <!-- Favicon icon -->
-
-  <!-- Mobile first-->
-  <!-- Larger devices -->
-
-  <script type="module" crossorigin src="/wdd330/assets/main-CG55T58f.js"></script>
-  <link rel="modulepreload" crossorigin href="/wdd330/assets/MoviesByCategory-BnnAdQnl.js">
-  <link rel="modulepreload" crossorigin href="/wdd330/assets/SearchBar-ofR8o_PO.js">
-  <link rel="stylesheet" crossorigin href="/wdd330/assets/MoviesByCategory-BIZzdsw3.css">
-  <link rel="stylesheet" crossorigin href="/wdd330/assets/main-CGoainbR.css">
+  <link rel="shortcut icon" href="/wdd330/assets/cinemate-BY7P2iGJ.svg" type="image/x-icon" /><!-- Favicon icon -->
+  
+  <!-- Global css -->
+
+  <script type="module" crossorigin src="/wdd330/assets/main-CxvJgYlr.js"></script>
+  <link rel="modulepreload" crossorigin href="/wdd330/assets/mobile-DYqBC_rb.js">
+  <link rel="modulepreload" crossorigin href="/wdd330/assets/SearchBar-C5yiseFK.js">
+  <link rel="stylesheet" crossorigin href="/wdd330/assets/main-B0t89_tF.css">
 </head>
 
 <body>
   <!-- Header -->
   <header>
     <div class="header-name">
-      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%20fill='none'%3e%3c!--%20Outer%20circle%20(film%20reel)%20--%3e%3ccircle%20cx='32'%20cy='32'%20r='30'%20stroke='%232C3E50'%20stroke-width='4'%20fill='%2334495E'/%3e%3c!--%20Inner%20film%20reel%20holes%20--%3e%3ccircle%20cx='20'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='20'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3c!--%20Play%20button%20--%3e%3cpolygon%20points='26,20%2026,44%2046,32'%20fill='%23E74C3C'/%3e%3c/svg%3e" alt="An svg icon on my app" width="40" height="50">
-      <h1>CineMate | Home</h1>
+      <button class="hamburger" id="hamburger-btn">☰</button>
+      <div>
+        <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%20fill='none'%3e%3c!--%20Outer%20circle%20(film%20reel)%20--%3e%3ccircle%20cx='32'%20cy='32'%20r='30'%20stroke='%232C3E50'%20stroke-width='4'%20fill='%2334495E'/%3e%3c!--%20Inner%20film%20reel%20holes%20--%3e%3ccircle%20cx='20'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='20'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3c!--%20Play%20button%20--%3e%3cpolygon%20points='26,20%2026,44%2046,32'%20fill='%23E74C3C'/%3e%3c/svg%3e" alt="An svg icon on my app" width="40" height="50">
+        <h1>CineMate | Home</h1>
+      </div>
     </div>
 
     <div class="search-section">
@@ -86,7 +86,7 @@
   </header>
   <!-- Navigation-->
   <div class="navigation-bar">
-    <nav>
+    <nav id="nav-menu">
       <a href="#">Home</a>
       <a href="./src/Favorites/favorites.html">Favorites</a>
       <a href="./src/movies_selected/movies-selected.html">Movie Selected</a>
@@ -99,7 +99,7 @@
     <div id="master-container">
       <div id="filter-trigger">
         <h3>Filters</h3>
-        
+
         <div class="filter-group">
           <label for="filter-genre">Genre</label>
           <select id="filter-genre">
@@ -111,10 +111,10 @@
             <option value="878">Sci-Fi</option>
             <option value="10749">Romance</option>
             <option value="53">Thriller</option>
-            <option value="16">Animation</option> 
+            <option value="16">Animation</option>
           </select>
         </div>
-        
+
         <div class="filter-group">
           <label for="filter-year">Release Year</label>
           <select id="filter-year">
@@ -127,12 +127,12 @@
             <option value="older">Before 2020</option>
           </select>
         </div>
-        
+
         <div class="filter-group">
           <label for="filter-rating">Min Rating: <span id="rating-display">0</span></label>
-          <input type="range" id="filter-rating" min="0" max="10" step="0.5" value="0"/>
+          <input type="range" id="filter-rating" min="0" max="10" step="0.5" value="0" />
         </div>
-        
+
         <div class="filter-group">
           <label for="filter-sort">Sort By</label>
           <select id="filter-sort">
@@ -141,7 +141,7 @@
             <option value="title-desc">Title (Z–A)</option>
             <option value="rating-desc">Highest Rated</option>
             <option value="year-desc">Newest First</option>
-            <option value="year-asc">Oldest First</option> 
+            <option value="year-asc">Oldest First</option>
           </select>
         </div>
 
@@ -161,7 +161,7 @@
     </p>
     <div class="socials">
       <a href="https://www.facebook.com/kevin.mbemba.208794" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="50px" height="60px">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="SVGRepo_iconCarrier">

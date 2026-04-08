@@ -5,4 +5,4 @@
               <span>Rating: ${t.rating??`N/A`}</span>
             </div>
             <button class="remove-btn" data-index="${n}">Remove</button>
-        `,e.appendChild(r)}),e.addEventListener(`click`,e=>{if(e.target.classList.contains(`remove-btn`)){let r=Number(e.target.dataset.index);t.splice(r,1),localStorage.setItem(`favorites`,JSON.stringify(t)),n()}})}export{n,t};
+        `,e.appendChild(r)}),e.addEventListener(`click`,e=>{if(e.target.classList.contains(`remove-btn`)){let r=Number(e.target.dataset.index);t.splice(r,1),localStorage.setItem(`favorites`,JSON.stringify(t)),n()}})}function r(){document.getElementById(`hamburger-btn`).addEventListener(`click`,()=>{document.querySelector(`.navigation-bar`).classList.toggle(`open`)})}r();export{n,t};

@@ -11,25 +11,28 @@
       type="image/x-icon"
     />
     <!-- Mobile first-->
+    <link rel="stylesheet" href="../public/css/responsive.css" />
     <!-- Larger devices-->
     <!-- Larger devices -->
-    <script type="module" crossorigin src="/wdd330/assets/movies-DmV6NIan.js"></script>
-    <link rel="modulepreload" crossorigin href="/wdd330/assets/MoviesByCategory-BnnAdQnl.js">
-    <link rel="modulepreload" crossorigin href="/wdd330/assets/SearchBar-ofR8o_PO.js">
-    <link rel="stylesheet" crossorigin href="/wdd330/assets/MoviesByCategory-BIZzdsw3.css">
-    <link rel="stylesheet" crossorigin href="/wdd330/assets/movies-pUZTaC6q.css">
+    <script type="module" crossorigin src="/wdd330/assets/movies-Dc0s-8GM.js"></script>
+    <link rel="modulepreload" crossorigin href="/wdd330/assets/mobile-DYqBC_rb.js">
+    <link rel="modulepreload" crossorigin href="/wdd330/assets/SearchBar-C5yiseFK.js">
+    <link rel="stylesheet" crossorigin href="/wdd330/assets/movies-Cs5tjk_f.css">
   </head>
 
   <body>
     <header>
       <div class="header-name">
-        <img
-          src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%20fill='none'%3e%3c!--%20Outer%20circle%20(film%20reel)%20--%3e%3ccircle%20cx='32'%20cy='32'%20r='30'%20stroke='%232C3E50'%20stroke-width='4'%20fill='%2334495E'/%3e%3c!--%20Inner%20film%20reel%20holes%20--%3e%3ccircle%20cx='20'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='20'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3c!--%20Play%20button%20--%3e%3cpolygon%20points='26,20%2026,44%2046,32'%20fill='%23E74C3C'/%3e%3c/svg%3e"
-          alt="An svg icon on my app"
-          width="40"
-          height="50"
-        />
-        <h1>CineMate | Home</h1>
+        <button class="hamburger" id="hamburger-btn">☰</button>
+        <div>
+          <img
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%20fill='none'%3e%3c!--%20Outer%20circle%20(film%20reel)%20--%3e%3ccircle%20cx='32'%20cy='32'%20r='30'%20stroke='%232C3E50'%20stroke-width='4'%20fill='%2334495E'/%3e%3c!--%20Inner%20film%20reel%20holes%20--%3e%3ccircle%20cx='20'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='20'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='20'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3ccircle%20cx='44'%20cy='44'%20r='4'%20fill='%23ECF0F1'/%3e%3c!--%20Play%20button%20--%3e%3cpolygon%20points='26,20%2026,44%2046,32'%20fill='%23E74C3C'/%3e%3c/svg%3e"
+            alt="An svg icon on my app"
+            width="40"
+            height="50"
+          />
+          <h1>CineMate | Movie Selected</h1>
+        </div>
       </div>
 
       <div class="search-section">
@@ -70,7 +73,7 @@
     </header>
     <!-- Navigation-->
     <div class="navigation-bar">
-      <nav>
+      <nav id="nav-menu">
         <a href="../../index.html">Home</a>
         <a href="../Favorites/favorites.html">Favorites</a>
         <a href="../movies_selected/movies-selected.html">Movie Selected</a>

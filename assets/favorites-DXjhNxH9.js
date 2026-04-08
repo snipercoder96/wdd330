@@ -1,1 +1,0 @@
-import{n as e}from"./MoviesByCategory-BnnAdQnl.js";e();
