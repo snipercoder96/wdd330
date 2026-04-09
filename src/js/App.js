@@ -5,7 +5,6 @@ import { initializeFilter } from "./filter.mjs";
 import { getGenreMap } from "./DisplayMovies.mjs";
 import { lastModified } from "./lastModified.mjs";
 
-
 const tmdbKey = import.meta.env.VITE_TMDB_KEY;
 
 document.addEventListener("DOMContentLoaded", async () => {
