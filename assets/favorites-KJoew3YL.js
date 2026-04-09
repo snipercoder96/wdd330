@@ -1,0 +1,1 @@
+import{r as e,t}from"./mobile-C34EZl6Z.js";e(),t();

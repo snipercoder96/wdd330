@@ -1,9 +1,9 @@
-import{t as e}from"./mobile-DYqBC_rb.js";import{t}from"./SearchBar-C5yiseFK.js";var n=`AIzaSyA4zdST2SyqJ9zt0STvk6Q8oG-bicMhz2w`,r=`0db2b97fda8bdb113cd7fe172fd59810`;async function i(t,i=``,a){let o=`${t} ${i} trailer`.trim();try{let t=await(await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(o.toLowerCase())}&type=video&maxResults=1&key=${n}`)).json(),i=t.items?.[0]?.id?.videoId;console.log(t);let s=await(await fetch(`https://api.themoviedb.org/3/movie/${a}?api_key=${r}`)).json(),c=await(await fetch(`https://api.themoviedb.org/3/movie/${a}/credits?api_key=${r}`)).json(),l=c.crew?.filter(e=>e.job===`Director`)||[],u=c.crew?.filter(e=>[`Writer`,`Screenplay`,`Author`].includes(e.job))||[],d=c.cast?.slice(0,5)||[],f=document.getElementById(`movie-details`);if(i){f.innerHTML=`
+import{n as e,t}from"./mobile-C34EZl6Z.js";import{t as n}from"./SearchBar-PHQnOm6G.js";var r=`AIzaSyA4zdST2SyqJ9zt0STvk6Q8oG-bicMhz2w`,i=`0db2b97fda8bdb113cd7fe172fd59810`;async function a(t,n=``,a){let o=`${t} ${n} trailer`.trim();try{let t=await(await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(o.toLowerCase())}&type=video&maxResults=1&key=${r}`)).json(),n=t.items?.[0]?.id?.videoId;console.log(t);let s=await(await fetch(`https://api.themoviedb.org/3/movie/${a}?api_key=${i}`)).json(),c=await(await fetch(`https://api.themoviedb.org/3/movie/${a}/credits?api_key=${i}`)).json(),l=c.crew?.filter(e=>e.job===`Director`)||[],u=c.crew?.filter(e=>[`Writer`,`Screenplay`,`Author`].includes(e.job))||[],d=c.cast?.slice(0,5)||[],f=document.getElementById(`movie-details`);if(n){f.innerHTML=`
             <div class="grid-area1">
                 <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/${i}"
+                src="https://www.youtube.com/embed/${n}"
                 style="border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
@@ -70,4 +70,4 @@ import{t as e}from"./mobile-DYqBC_rb.js";import{t}from"./SearchBar-C5yiseFK.js";
                 <p>Trailer not found.</p>
             </div>`}catch(e){let t=document.getElementById(`movie-details`);t.innerHTML=`<div>
                 <p>${e} : Failed to load movie details. Please try again.</p>
-            </div>`}}t();var a=new URLSearchParams(window.location.search),o=a.get(`title`),s=a.get(`year`),c=a.get(`id`);o?i(o,s,c):document.getElementById(`movie-details`).innerHTML=`<p>No movie selected.</p>`;
+            </div>`}}n(),t();var o=new URLSearchParams(window.location.search),s=o.get(`title`),c=o.get(`year`),l=o.get(`id`);s?a(s,c,l):document.getElementById(`movie-details`).innerHTML=`<p>No movie selected.</p>`;
