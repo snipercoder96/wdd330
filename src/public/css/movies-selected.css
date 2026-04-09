@@ -206,7 +206,8 @@ header {
   }
 
   & img {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     margin: 0 auto;
   }
 
@@ -266,6 +267,7 @@ header {
   & iframe {
     border-radius: 6px;
     border: solid 1px var(--accent-blue);
+    width: 100%;
     max-width: 400px;
     margin: 0 auto;
   }
@@ -356,7 +358,8 @@ header {
         }
 
         & img {
-          width: 250px;
+          width: 100%;
+          max-width: 250px;
           overflow: hidden;
           object-fit: cover;
         }

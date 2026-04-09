@@ -3,6 +3,9 @@ import searchBar from "./SearchBar.mjs";
 import { displayGlobalMovies } from "./DisplayMovies.mjs";
 import { initializeFilter } from "./filter.mjs";
 import { getGenreMap } from "./DisplayMovies.mjs";
+import { lastModified } from "./lastModified.mjs";
+
+
 const tmdbKey = import.meta.env.VITE_TMDB_KEY;
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -17,4 +20,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   displayGlobalMovies(data.results, genreMap);
   initializeFilter(data.results, genreMap);
+  lastModified();
 });

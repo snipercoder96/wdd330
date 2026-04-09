@@ -1,7 +1,9 @@
 import { displayTrailer } from "./FetchTrailer.mjs";
 import searchBar from "./SearchBar.mjs";
+import { lastModified } from "./lastModified.mjs";
 
 searchBar();
+lastModified();
 
 const params = new URLSearchParams(window.location.search);
 const movieTitle = params.get("title");
