@@ -19,6 +19,11 @@
 }
 
 /* Mobile breakpoint*/
+
+html {
+  max-width: 100%;
+}
+
 *,
 *::before,
 *::after {
@@ -367,6 +372,7 @@ header {
     }
   }
 }
+
 footer {
   background-color: var(--footer-bg);
   padding: 1em;
@@ -413,8 +419,91 @@ footer {
 
 /*-------------------------------------*/
 
+/*------------------------------ Tablet 800px -------------------------------------------- */
+@media screen and (min-width: 800px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  }
+
+  .header-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    flex-grow: 1;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+
+    & img {
+      overflow: hidden;
+      object-fit: contain;
+    }
+
+    & button {
+      display: none;
+    }
+  }
+
+  .search-section {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    flex-grow: 1;
+
+    & #search-section{
+      flex-grow: 1;
+    }
+  }
+
+  .navigation-bar {
+    display: block;
+    padding: 1rem;
+    border-bottom: solid 1px var(--divider-dark);
+    background-color: var(--bg-primary-dark);
+
+    & nav {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    & a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      transition: color 0.3s ease;
+    }
+
+    & a:hover {
+      color: var(--accent-blue);
+    }
+  }
+
+  #movie-details {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1em;
+    justify-content: center;
+    background-color: var(--bg-primary-dark);
+  }
+
+  #search-results {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    justify-content: center;
+    background-color: var(--bg-primary-dark);
+  }
+}
+
 /*------------------------------ Desktop -------------------------------------------- */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) and (max-width: 1168px) {
+
   *,
   *::before,
   *::after {
@@ -459,6 +548,7 @@ footer {
 
   #search-section {
     display: flex;
+    flex-grow: 1;
 
     & input {
       padding: 10px;
@@ -588,6 +678,8 @@ footer {
           }
         }
       }
+
+
     }
 
     & .grid-area1 {
@@ -636,7 +728,7 @@ footer {
   #search-results {
     padding: 1em;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1em;
     justify-content: center;
     background-color: var(--bg-primary-dark);
@@ -740,7 +832,7 @@ footer {
 
       & .movie-cast-images {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         padding: 1em;
         margin: 1em;
@@ -817,3 +909,85 @@ footer {
 }
 
 /*--------------------------------------------------------------------------------------------------*/
+@media screen and (min-width: 1169px) {
+
+  .grid-area2{
+
+    & .movie-main-cast .movie-cast-images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1em;
+        margin: 1em; 
+      }
+  }
+
+  #search-results {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    justify-content: center;
+    background-color: var(--bg-primary-dark);
+
+    & .movie-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1em;
+      margin: 1em;
+      text-align: center;
+      min-height: 250px;
+      background-color: var(--card-bg);
+      border: 1px solid transparent;
+      border-radius: 6px;
+      transition: all 0.3s ease-in-out;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+
+      & p {
+        overflow-wrap: break-word;
+      }
+
+      & img {
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      & .movie-action-btn {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 0.5em;
+
+        & button {
+          width: 50%;
+          align-self: center;
+          cursor: pointer;
+          background-color: var(--accent-blue);
+          color: var(--text-primary);
+          border: none;
+          border-radius: 6px;
+          padding: 0.5em;
+          font-family: var(--font-heading);
+          transition: all 0.3s ease-in-out;
+        }
+
+        & button:hover {
+          background-color: var(--accent-blue-light);
+        }
+
+        & .add-to-favorites div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          & .align-svg {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
