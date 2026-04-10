@@ -18,7 +18,7 @@
   --font-body: "Merriweather", serif;
 }
 
-html{
+html {
   max-width: 100%;
 }
 
@@ -181,7 +181,10 @@ header {
   padding: 0 1em;
   background-color: var(--interactive-bg);
   border-bottom: solid 1px var(--divider-dark);
-  transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.35s ease,
+    padding 0.35s ease;
   pointer-events: none;
 }
 
@@ -394,7 +397,7 @@ footer a:hover {
     gap: 0.5rem;
     padding: 1rem;
 
-    & div{
+    & div {
       display: flex;
       align-items: center;
       gap: 1rem;

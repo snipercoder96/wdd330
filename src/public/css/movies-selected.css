@@ -454,7 +454,7 @@ footer {
     padding: 1rem;
     flex-grow: 1;
 
-    & #search-section{
+    & #search-section {
       flex-grow: 1;
     }
   }
@@ -503,7 +503,6 @@ footer {
 
 /*------------------------------ Desktop -------------------------------------------- */
 @media screen and (min-width: 1024px) and (max-width: 1168px) {
-
   *,
   *::before,
   *::after {
@@ -678,8 +677,6 @@ footer {
           }
         }
       }
-
-
     }
 
     & .grid-area1 {
@@ -910,16 +907,14 @@ footer {
 
 /*--------------------------------------------------------------------------------------------------*/
 @media screen and (min-width: 1169px) {
-
-  .grid-area2{
-
+  .grid-area2 {
     & .movie-main-cast .movie-cast-images {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        padding: 1em;
-        margin: 1em; 
-      }
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 1em;
+      margin: 1em;
+    }
   }
 
   #search-results {
