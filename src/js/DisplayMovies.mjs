@@ -1,7 +1,6 @@
 const tmdbKey = import.meta.env.VITE_TMDB_KEY;
 import { addToFavourites } from "./MoviesByCategory.js";
 
-// Fetch and cache the genre map so any caller can use it
 let cachedGenreMap = null;
 
 export async function getGenreMap() {
@@ -40,7 +39,6 @@ export function displaySearchResults(movies, genreMap = {}) {
             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
             : "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXZtZThvZ25sYm5qMDA1OHBmczU4NHJlZnBsMGNyaXgxdG5oOHVzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qHXSYtyW0kANmLLzcG/giphy.gif";
 
-        // genre_ids may be undefined (e.g. from /search/movie endpoint)
         const genres = (movie.genre_ids ?? [])
             .map(id => genreMap[id] || "Unknown")
             .join(", ") || "N/A";

@@ -1,4 +1,3 @@
-// App.js
 import searchBar from "./SearchBar.mjs";
 import { displayGlobalMovies } from "./DisplayMovies.mjs";
 import { initializeFilter } from "./filter.mjs";

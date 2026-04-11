@@ -12,7 +12,6 @@ export function addToFavourites(movie, year, genres) {
 
   const favMovie = new Movie(movie.title, year, genres, movie.vote_average);
 
-  // Avoid duplicates after saving favorite movies
   const exists = favorites.some(
     (f) => f.title === favMovie.title && f.year === favMovie.year,
   );
@@ -21,7 +20,6 @@ export function addToFavourites(movie, year, genres) {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }
 
-  //Redirect after you save your favorite movie
   window.location.href = "/wdd330/src/Favorites/favorites.html";
 }
 
@@ -50,13 +48,12 @@ export function renderFavourites() {
     list.appendChild(item);
   });
 
-  // Remove from favourites
   list.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {
       const index = Number(e.target.dataset.index);
       favorites.splice(index, 1);
       localStorage.setItem("favorites", JSON.stringify(favorites));
-      renderFavourites(); // Render updated data after removing favorites
+      renderFavourites();
     }
   });
 }

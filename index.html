@@ -8,7 +8,8 @@
   <meta name="description" content="CineMate App - a movie search and filter app by Kevin Mbemba." />
   <meta property="og:site_name" content="CineMate App" />
   <meta property="og:title" content="CineMate App" />
-  <meta property="og:description" content="Explore movies, filter by genre, year and rating, and connect with Kevin Mbemba via GitHub, Facebook and LinkedIn." />
+  <meta property="og:description"
+    content="Explore movies, filter by genre, year and rating, and connect with Kevin Mbemba via GitHub, Facebook and LinkedIn." />
   <meta property="og:type" content="website" />
   <meta property="profile:first_name" content="Kevin" />
   <meta property="profile:last_name" content="Mbemba" />
@@ -22,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     integrity="sha512-oHDEc8XedU5l9z1FMvx6bMpiKFFitvolG/Gp2gbf+5Q5e0siJmq9hw3rroWAtxEvsC0RTwEuk+qS0b+T1rUJ0w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+
   <!-- Global css -->
   <link rel="stylesheet" href="./src/public/css/style.css" />
 
@@ -34,7 +35,8 @@
   <!-- Header -->
   <header>
     <div class="header-name">
-      <button class="hamburger" id="hamburger-btn">☰</button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu"
+        title="Toggle navigation menu">☰</button>
       <div>
         <img src="./src/assets/images/cinemate.svg" alt="An svg icon on my app" width="40" height="50">
         <h1>CineMate | Home</h1>
@@ -44,9 +46,10 @@
     <div class="search-section">
       <!-- Search Section -->
       <section id="search-section">
-        <input type="text" id="search-input" placeholder="Enter movie title..." />
-        <button id="search-btn">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px">
+        <input type="text" id="search-input" placeholder="Enter movie title..." title="Enter movie title to search" />
+        <button id="search-btn" aria-label="Search movies" title="Search for movies">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px"
+            aria-hidden="true">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
@@ -59,12 +62,12 @@
       </section>
     </div>
     <div id="filter-results">
-      <button id="filter-btn">
+      <button id="filter-btn" title="Open filters">
         <svg viewBox="0 0 600 600" version="1.1" id="svg9724" sodipodi:docname="settings2.svg"
           inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)" width="15px" height="15px"
           xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
           xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
-          xmlns:svg="http://www.w3.org/2000/svg" fill="currentColor">
+          xmlns:svg="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="SVGRepo_iconCarrier">
@@ -102,8 +105,8 @@
   <div class="navigation-bar">
     <nav id="nav-menu">
       <a href="#">Home</a>
-      <a href="./src/Favorites/favorites.html">Favorites</a>
-      <a href="./src/movies_selected/movies-selected.html">Movie Selected</a>
+      <a href="./src/Favorites/favorites.html" title="View favorite movies">Favorites</a>
+      <a href="./src/movies_selected/movies-selected.html" title="View selected movie details">Movie Selected</a>
     </nav>
   </div>
 
@@ -116,7 +119,7 @@
 
         <div class="filter-group">
           <label for="filter-genre">Genre</label>
-          <select id="filter-genre">
+          <select id="filter-genre" title="Select movie genre">
             <option value="">All Genres</option>
             <option value="28">Action</option>
             <option value="35">Comedy</option>
@@ -131,7 +134,7 @@
 
         <div class="filter-group">
           <label for="filter-year">Release Year</label>
-          <select id="filter-year">
+          <select id="filter-year" title="Select release year">
             <option value="">All Years</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
@@ -144,12 +147,13 @@
 
         <div class="filter-group">
           <label for="filter-rating">Min Rating: <span id="rating-display">0</span></label>
-          <input type="range" id="filter-rating" min="0" max="10" step="0.5" value="0" />
+          <input type="range" id="filter-rating" min="0" max="10" step="0.5" value="0" aria-valuemin="0"
+            aria-valuemax="10" aria-valuenow="0" title="Set minimum rating" />
         </div>
 
         <div class="filter-group">
           <label for="filter-sort">Sort By</label>
-          <select id="filter-sort">
+          <select id="filter-sort" title="Select sorting option">
             <option value="">Default</option>
             <option value="title-asc">Title (A–Z)</option>
             <option value="title-desc">Title (Z–A)</option>
@@ -159,8 +163,8 @@
           </select>
         </div>
 
-        <button id="apply-filters">Apply Filters</button>
-        <button id="clear-filters">Clear</button>
+        <button id="apply-filters" title="Apply selected filters">Apply Filters</button>
+        <button id="clear-filters" title="Clear all filters">Clear</button>
       </div>
       <div id="search-results"></div>
       <div id="movie-details"></div>
@@ -174,8 +178,10 @@
       <span id="lastModified"></span>
     </p>
     <div class="socials">
-      <a href="https://www.facebook.com/kevin.mbemba.208794" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+      <a href="https://www.facebook.com/kevin.mbemba.208794" target="_blank"
+        aria-label="Visit Facebook profile (opens in new tab)" title="Visit Facebook profile">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="60px" height="60px"
+          aria-hidden="true">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="SVGRepo_iconCarrier">
@@ -186,9 +192,10 @@
         </svg>
       </a>
 
-      <a href="https://github.com/snipercoder96" target="_blank">
+      <a href="https://github.com/snipercoder96" target="_blank" aria-label="Visit GitHub profile (opens in new tab)"
+        title="Visit GitHub profile">
         <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" width="40px" height="40px">
+          xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" width="40px" height="40px" aria-hidden="true">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="SVGRepo_iconCarrier">
@@ -208,8 +215,10 @@
         </svg>
       </a>
 
-      <a href="https://www.linkedin.com/in/summer-soldiertm-4a49502b6" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+      <a href="https://www.linkedin.com/in/summer-soldiertm-4a49502b6" target="_blank"
+        aria-label="Visit LinkedIn profile (opens in new tab)" title="Visit LinkedIn profile">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px"
+          aria-hidden="true">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="SVGRepo_iconCarrier">

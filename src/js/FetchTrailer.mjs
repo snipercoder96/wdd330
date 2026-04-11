@@ -2,17 +2,6 @@ const ytKey = import.meta.env.VITE_YOUTUBE_KEY;
 const tmdbKey = import.meta.env.VITE_TMDB_KEY;
 import { addToFavourites } from "./MoviesByCategory.js";
 
-/*
-    This function will:
-    ✅Fetch the YouTube trailer that matches the movie title and release year from TMDb.
-    ✅Retrieve detailed movie information from TMDb, including title, rating, release date, genres, and synopsis.
-    ✅Collect crew data from TMDbs database to display directors and writers.
-    ✅Extract the top 5 cast members and display their names, roles, and profile images.
-    ✅Render all collected information (trailer, details, credits, cast) into the #movie-details container.
-    ✅Handle errors by showing a fallback message if data cannot be loaded.
-*/
-
-
 export async function displayTrailer(title, year = "", id) {
     const ytQuery = `${title} ${year} trailer`.trim();
 
@@ -99,11 +88,11 @@ export async function displayTrailer(title, year = "", id) {
                         <div class="movie-cast-images">
                             ${topCast.map(actor => `
                             <div>
-                                <img 
+                                <img
                                 src="${actor.profile_path
                     ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-                    : 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXZtZThvZ25sYm5qMDA1OHBmczU4NHJlZnBsMGNyaXgxdG5oOHVzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qHXSYtyW0kANmLLzcG/giphy.gif'}" 
-                                alt="${actor.name}" 
+                    : 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXZtZThvZ25sYm5qMDA1OHBmczU4NHJlZnBsMGNyaXgxdG5oOHVzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qHXSYtyW0kANmLLzcG/giphy.gif'}"
+                                alt="${actor.name}"
                                 loading="lazy"/>
                                 <p>${actor.name} as ${actor.character}</p>
                             </div>
@@ -114,27 +103,22 @@ export async function displayTrailer(title, year = "", id) {
             </div>
             `;
 
-            // Add event listener to the Add to Favorites button
-            const addToFavBtn = container.querySelector(".add-to-favorites");
-            if (addToFavBtn) {
-                const year = tmdbData.release_date.split("-")[0];
-                const genres = tmdbData.genres.map(g => g.name).join(", ");
-                addToFavBtn.addEventListener("click", () => {
-                    addToFavourites(tmdbData, year, genres);
-                });
-            }
-
+            addToFavBtn.addEventListener("click", () => {
+                addToFavourites(tmdbData, year, genres);
+            });
         } else {
-            container.innerHTML = `
+        container.innerHTML = `
             <div>
                 <p>Trailer not found.</p>
             </div>`;
         }
-    } catch (err) {
+
+    }  catch {
         const container = document.getElementById("movie-details");
         container.innerHTML =
             `<div>
-                <p>${err} : Failed to load movie details. Please try again.</p>
+                <p>Failed to load movie details. Please try again.</p>
             </div>`;
     }
+
 }
