@@ -40,11 +40,11 @@ export async function displayTrailer(title, year = "", id) {
                 src="https://www.youtube.com/embed/${videoId}"
                 style="border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
+                allowfullscreen title="Trailer for ${title} ${year}">
                 </iframe>
 
                 <button class="add-to-favorites">
-                <svg viewBox="0 0 24.00 24.00" fill="yellow" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px">
+                <svg viewBox="0 0 24.00 24.00" fill="yellow" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" aria-hidden="true">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
